@@ -1,0 +1,9 @@
+- name: ingenyo
+  hosts: ingenyo
+  user: ivan
+  sudo: true
+  roles:
+    - architecture
+  vars:
+    ignoreip: 1.2.3.4
+    mail_fail2band: mullerivan@gmail.com

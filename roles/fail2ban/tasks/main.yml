@@ -1,0 +1,4 @@
+---
+# Setup the apps
+- include: install.yml
+- include: configure.yml

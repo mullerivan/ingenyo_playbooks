@@ -1,0 +1,6 @@
+- name: copy jail.local
+  copy: src=jail.local
+        dest=/etc/fail2ban/jail.local
+
+- lineinfile: dest=/etc/fail2ban/jail.local  regexp="ignoreip = 127.0.0.1/8" line="ignoreip = {{ignoreip}}"
+- lineinfile: dest=/etc/fail2ban/jail.local  regexp="destemail = root@localhost" line="destemail = {{mail_fail2band}}"

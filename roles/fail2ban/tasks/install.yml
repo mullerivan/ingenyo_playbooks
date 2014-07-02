@@ -1,0 +1,9 @@
+---
+- name: Install fail2ban - iptables-persistent using apt
+  apt: pkg={{ item }}
+       state=latest
+       install_recommends=yes
+       update_cache=yes
+  with_items:
+  - fail2ban
+  - iptables-persistent

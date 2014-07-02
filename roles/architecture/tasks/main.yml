@@ -1,0 +1,6 @@
+---
+# Setup the apps
+- include: essential.yml
+
+
+
