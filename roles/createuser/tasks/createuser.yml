@@ -1,0 +1,17 @@
+---
+#el usuario no tiene un password generado  eso se hace manualmente
+- name: Create  user {{user}}
+  user: name={{user}}  comment="create user {{user}}" state=present system=yes createhome=yes shell=/bin/bash
+
+- name: Create .ssh directory
+  file: path=/home/{{user}}/.ssh state=directory
+#me autorizo a mi a entrar por cualquier usuario
+- name: copy authorized_keys
+  copy: src=authorized_keys dest=/home/{{user}}/.ssh/authorized_keys
+
+#porque  crea todo como root
+- name: change owner
+  command: chown {{user}}:{{user}} -R   /home/{{user}}/
+
+
+

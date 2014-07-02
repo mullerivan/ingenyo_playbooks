@@ -3,7 +3,16 @@
   user: ivan
   sudo: true
   roles:
-    - architecture
+#    - architecture
+#    - fail2ban
+    -createuser
   vars:
+    user:
     ignoreip: 1.2.3.4
     mail_fail2band: mullerivan@gmail.com
+
+#NO ENTENDES?
+#DOCUMENTACION!
+#http://docs.ansible.com/
+#todos los modulos que hay para usar!
+#http://docs.ansible.com/list_of_all_modules.html
