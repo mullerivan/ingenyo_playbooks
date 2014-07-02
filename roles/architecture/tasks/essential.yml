@@ -15,7 +15,6 @@
   - nload
   - python-pycurl
   - zsh
-  - vim-lua
 
 - name: Install build essential package
   apt: pkg={{ item }} state=latest update_cache=yes install_recommends=yes
