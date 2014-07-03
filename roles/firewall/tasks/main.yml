@@ -1,0 +1,29 @@
+---
+- name: Accept  conection RELATED,ESTABLISHED
+  shell: iptables -A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
+
+- name: Accept ssh conection port 22
+  shell: iptables -A INPUT -p tcp --dport 22  -j ACCEPT
+
+- name: Accept http conection port 80
+  shell: iptables -A INPUT -p tcp --dport 80  -j ACCEPT
+
+- name: Accept https conection port 443
+  shell: iptables -A INPUT -p tcp --dport 443  -j ACCEPT
+
+- name: localhost could conect anywhere
+  shell: iptables -A INPUT -i lo -j ACCEPT
+
+- name: Politic INPUT DROP
+  shell: iptables -P INPUT DROP
+
+
+#iptables -P INPUT DROP
+#iptables -A INPUT -p tcp --dport 22  -j ACCEPT
+#iptables -A INPUT -p tcp --dport 80  -j ACCEPT
+#iptables -A INPUT -p tcp --dport 443  -j ACCEPT
+
+# que lindo esto pero no me funciono
+#- firewalld: service=https permanent=true state=enabled
+#- firewalld: service=ssh permanent=true state=enabled
+#- firewalld: service=http permanent=true state=enabled

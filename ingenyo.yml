@@ -4,10 +4,11 @@
   sudo: true
   roles:
 #    - architecture
+    - firewall
 #    - fail2ban
-    -createuser
+#    -createuser
   vars:
-    user:
+    user: test
     ignoreip: 1.2.3.4
     mail_fail2band: mullerivan@gmail.com
 
