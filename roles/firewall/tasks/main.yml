@@ -1,5 +1,4 @@
 ---
-
 - name: drop old politics
   shell: iptables -P INPUT ACCEPT
 
