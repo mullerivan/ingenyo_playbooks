@@ -1,4 +1,11 @@
 ---
+
+- name: drop old politics
+  shell: iptables -P INPUT ACCEPT
+
+- name: drop old rules
+  shell: iptables -F
+
 - name: Accept  conection RELATED,ESTABLISHED
   shell: iptables -A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
 
@@ -16,14 +23,3 @@
 
 - name: Politic INPUT DROP
   shell: iptables -P INPUT DROP
-
-
-#iptables -P INPUT DROP
-#iptables -A INPUT -p tcp --dport 22  -j ACCEPT
-#iptables -A INPUT -p tcp --dport 80  -j ACCEPT
-#iptables -A INPUT -p tcp --dport 443  -j ACCEPT
-
-# que lindo esto pero no me funciono
-#- firewalld: service=https permanent=true state=enabled
-#- firewalld: service=ssh permanent=true state=enabled
-#- firewalld: service=http permanent=true state=enabled
