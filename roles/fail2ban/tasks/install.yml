@@ -1,9 +1,15 @@
 ---
-- name: Install fail2ban - iptables-persistent using apt
-  apt: pkg={{ item }}
-       state=latest
-       install_recommends=yes
-       update_cache=yes
-  with_items:
-  - fail2ban
-  - iptables-persistent
+- name: Download fail2ban
+  get_url: url=https://codeload.github.com/fail2ban/fail2ban/tar.gz/0.8.13 dest=~/fail2ban-0.8.13.tar.gz
+
+- name: uncompress fail2ban-0.8.13.tar.gz
+  command: tar xf fail2ban-0.8.13.tar.gz chdir=~/
+#
+#- name: Install fail2ban - iptables-persistent using apt
+#  apt: pkg={{ item }}
+#       state=latest
+#       install_recommends=yes
+#       update_cache=yes
+#  with_items:
+#  - fail2ban
+#  - iptables-persistent

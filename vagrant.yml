@@ -1,0 +1,27 @@
+- name: ingenyo
+  hosts: all
+  user: vagrant
+  sudo: true
+  roles:
+    - architecture
+    # - firewall
+#    - fail2ban
+    # - createuser
+    - deploy
+  vars_files:
+    - vars/default.yml    
+  vars:
+    user: ivan
+    ignoreip: 1.2.3.4
+    mail_fail2band: mullerivan@gmail.com
+ 
+
+# A small Rails server playbook for Ansible
+# https://github.com/radar/ansible-rails-app/tree/master/roles/webserver/tasks
+# https://github.com/geerlingguy?tab=repositories
+
+#NO ENTENDES?
+#DOCUMENTACION!
+#http://docs.ansible.com/
+#todos los modulos que hay para usar!
+#http://docs.ansible.com/list_of_all_modules.html
