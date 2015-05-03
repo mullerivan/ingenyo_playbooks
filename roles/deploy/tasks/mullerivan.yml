@@ -1,15 +1,16 @@
 - name: Clone repositorio
   git: repo=https://github.com/mullerivan/mullerivan.git dest=/home/vagrant/mullerivan accept_hostkey=yes
   sudo: false
-  
+
 # - name: bundle install (install the rest of the gems)
 #   shell: bundle
 #          chdir=/home/vagrant/mullerivan
 #   sudo: false
 
- - copy: src=mullerivan.com dest=/etc/nginx/sites-available/mullerivan.com 
+- copy: src=mullerivan.com dest=/etc/nginx/sites-available/mullerivan.com 
 
- - file: src=/etc/nginx/sites-available/mullerivan.com  dest=/etc/nginx/sites-enabled/mullerivan.com  state=link
+- file: src=/etc/nginx/sites-available/mullerivan.com  dest=/etc/nginx/sites-enabled/mullerivan.com  state=link
 
-
-# moverse a la carpeta y correr  passenger start  -p 4020 -d -e production
+- name: Iniciar passenger para la aplicacion
+  shell: passenger start  -p 4020 -d -e production
+         chdir=/home/vagrant/mullerivan

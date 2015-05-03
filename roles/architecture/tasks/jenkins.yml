@@ -1,0 +1,15 @@
+
+- name:  downloading the GPG signature
+  shell: wget -q -O - http://pkg.jenkins-ci.org/debian/jenkins-ci.org.key | apt-key add -
+  sudo: true
+
+
+- name:  downloading the GPG signature
+  shell: sh -c 'echo deb http://pkg.jenkins-ci.org/debian binary/ > /etc/apt/sources.list.d/jenkins.list'
+  sudo: true
+
+- name: Installing jenkins
+  apt: pkg={{ item }} state=latest update_cache=yes install_recommends=yes
+  with_items:
+  - jenkins
+  sudo: true

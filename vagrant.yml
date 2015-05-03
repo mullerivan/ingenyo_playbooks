@@ -7,7 +7,7 @@
     # - firewall
 #    - fail2ban
     # - createuser
-    - deploy
+    # - deploy
   vars_files:
     - vars/default.yml    
   vars:

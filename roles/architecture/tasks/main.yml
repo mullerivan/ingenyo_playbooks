@@ -1,9 +1,9 @@
 ---
 # Setup the apps
-- include: essential.yml
+# - include: essential.yml
 - include: python.yml
-- include: rvm.yml
-- include: nginx_and_passenger.yml
-
+# - include: rvm.yml
+# - include: nginx_and_passenger.yml
+# - include: jenkins.yml
 
 
