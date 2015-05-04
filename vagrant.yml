@@ -4,7 +4,7 @@
   sudo: true
   roles:
     - architecture
-#    - firewall
+    - firewall
 #    - fail2ban
     - createuser
     - deploy
