@@ -3,7 +3,7 @@
 - include: essential.yml
 - include: python.yml
 - include: supervisor.yml
-- include: rvm.yml
+# - include: rvm.yml
 - include: ruby_src.yml
 - include: nginx_and_passenger.yml
 - include: jenkins.yml

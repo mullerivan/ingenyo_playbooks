@@ -1,6 +1,6 @@
-- name: Install Python-virtualenv packages
+- name: Install supervisor packages
   apt: pkg={{ item }} state=latest update_cache=yes install_recommends=yes
   with_items:
   - supervisor
 
-- copy: src=supervisord.conf dest=/etc/supervisor/supervisord.conf owner=root group=root mode=600
+- copy: src=supervisord.conf dest=/etc/supervisor/supervisord.conf owner=root group=root mode=644
