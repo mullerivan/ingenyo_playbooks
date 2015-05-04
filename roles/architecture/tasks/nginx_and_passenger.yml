@@ -16,7 +16,7 @@
   - ca-certificates
   sudo: true
 
-- copy: src=passenger.list dest=/etc/apt/sources.list.d/passenger.list owner=root group=root mode=600
+- copy: src=passenger.list dest=/etc/apt/sources.list.d/passenger.list owner=root group=root mode=644
 
 - name: Install passenger and nginx-extras
   apt: pkg={{ item }} state=latest update_cache=yes install_recommends=yes
