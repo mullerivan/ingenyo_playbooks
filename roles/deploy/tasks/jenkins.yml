@@ -1,0 +1,12 @@
+- name: stop jenkins
+  service: name=jenkins state=stopped
+
+# running,started,stopped,restarted,reloaded,
+- copy: src=jenkins.tar.gz dest=/tmp/jenkins.tar.gz
+
+- name: Descomprimir jenkins
+  shell: tar -xvzf /tmp/jenkins.tar.gz 
+         chdir=/var/lib/jenkins
+
+- name: start jenkins
+  service: name=jenkins state=started

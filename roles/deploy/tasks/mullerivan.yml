@@ -14,3 +14,5 @@
 - name: Iniciar passenger para la aplicacion
   shell: passenger start  -p 4020 -d -e production
          chdir=/home/vagrant/mullerivan
+
+

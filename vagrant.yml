@@ -3,8 +3,8 @@
   user: vagrant
   sudo: true
   roles:
-    - architecture
-    - firewall
+    # - architecture
+    # - firewall
 #    - fail2ban
     # - createuser
     - deploy
