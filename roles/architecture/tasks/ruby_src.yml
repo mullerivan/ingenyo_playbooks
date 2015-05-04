@@ -37,12 +37,25 @@
     - nodejs
     - imagemagick
   tags: package
-#   RVM
+  
+  # Install correct version of ruby from source
+- name: ruby-from-src | ensure temporary ruby download directory is present
+  file: state=directory path={{rubyTmpDir}}
 
-- name:  downloading the GPG signature
-  shell: gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
-  sudo: true
+- name: ruby-from-src | Download ruby source 
+  get_url: url={{rubyUrl}} dest={{rubyTmpDir}}
 
-- name: Installing rvm ruby and rails take 16m5.124s up to your  internet conection
-  shell: \curl -sSL https://get.rvm.io | bash -s stable --rails
-  sudo: true
+- name: ruby-from-src |extracting ruby
+  command: tar -xf {{rubyCompressedFile}} chdir={{rubyTmpDir}} creates={{tmpRubyPath}}
+
+- name: ruby-from-src | configure ruby 
+  command: ./configure chdir={{tmpRubyPath}} creates={{tmpRubyPath}}/Makefile
+
+- name: ruby-from-src | make
+  command: make chdir={{tmpRubyPath}} creates={{tmpRubyPath}}/ruby
+
+- name: ruby-from-src | make install
+  command: make install chdir={{tmpRubyPath}} creates=/usr/local/bin/ruby
+
+- name: Install Bundler
+  command: gem install bundler

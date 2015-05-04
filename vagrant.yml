@@ -4,10 +4,10 @@
   sudo: true
   roles:
     - architecture
-    # - firewall
+    - firewall
 #    - fail2ban
     # - createuser
-    # - deploy
+    - deploy
   vars_files:
     - vars/default.yml    
   vars:

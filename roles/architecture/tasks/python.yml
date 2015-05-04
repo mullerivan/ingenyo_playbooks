@@ -26,9 +26,8 @@
   with_items:
   - python-virtualenv
   - virtualenvwrapper
-  - supervisor
 
-- copy: src=supervisord.conf dest=/etc/supervisord.conf owner=root group=root mode=600
+
 
 - name: update pip
   shell: pip install -U pip
@@ -41,5 +40,3 @@
 
 - name: update virtualenvwrapper
   shell: pip install -U virtualenvwrapper
-
-
