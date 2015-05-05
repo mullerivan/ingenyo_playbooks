@@ -1,0 +1,23 @@
+server {
+    listen       80;
+    server_name  iq.geek.nz;
+
+    access_log  /var/log/nginx/iq.geek.nz-access.log  main;
+
+    location / {
+        uwsgi_pass unix:///home/iq/.pyenv/versions/iq/var/run/uwsgi.sock;
+        include /etc/nginx/uwsgi_params;
+    }
+
+    location /static/ {
+        root /home/iq/.pyenv/versions/iq/;
+        index index.html;
+        access_log off; log_not_found off; expires max;
+    }
+
+    location /docs/ {
+        alias /home/iq/.pyenv/versions/iq/docs/html/;
+        index index.html;
+        access_log off; log_not_found off; expires max;
+    }
+}

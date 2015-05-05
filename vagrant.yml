@@ -3,10 +3,11 @@
   user: vagrant
   sudo: true
   roles:
+    - system
     - architecture
     - firewall
 #    - fail2ban
-    - createuser
+    # - createuser
     - deploy
   vars_files:
     - vars/default.yml    

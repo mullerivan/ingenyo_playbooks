@@ -1,10 +1,10 @@
 - name: Clone repositorio
-  git: repo=https://github.com/mullerivan/mullerivan.git dest=/home/vagrant/mullerivan accept_hostkey=yes
+  git: repo=https://github.com/mullerivan/mullerivan.git dest={{app_path}} accept_hostkey=yes
   sudo: false
   # sudo_user
 - name: bundle install (install the rest of the gems)
-  shell: bundle
-         chdir=/home/vagrant/mullerivan
+  shell: /usr/local/rvm/wrappers/default/bundle
+         chdir={{app_path}}
   sudo: false
 # sudo_user
 
@@ -12,9 +12,4 @@
 
 - file: src=/etc/nginx/sites-available/mullerivan.com  dest=/etc/nginx/sites-enabled/mullerivan.com  state=link
 
-- name: Iniciar passenger para la aplicacion
-  shell: passenger start  -p 4020 -d -e production
-         chdir=/home/vagrant/mullerivan
-  sudo: false
-
-
+- lineinfile: dest=/etc/nginx/sites-available/mullerivan.com  regexp="root my_app/public;" line="root {{app_path}}/public;"

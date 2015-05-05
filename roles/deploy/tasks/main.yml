@@ -1,7 +1,7 @@
 ---
 # Setup the apps
 - include: mullerivan.yml
-- include: jenkins.yml
+# - include: jenkins.yml
 
 
 

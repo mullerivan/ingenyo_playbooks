@@ -1,11 +1,11 @@
-# ---
+---
 - name: remomve old ruby
   action: apt pkg={{item}} state=absent
   with_items:
     - ruby  
 
 # Ruby from source playbook (https://github.com/jgrowl/ansible-playbook-ruby-from-src)
-- name: upgrade
+- name: apt-get upgrade 
   action: apt update_cache=yes upgrade=yes
 
 - name: install ruby dependencies 
@@ -29,6 +29,7 @@
     - libxml2-dev
     - libxslt1-dev
     - curl
+    - libcurl4-openssl-dev
 
 - name: Install app dependencies 
   action: apt pkg={{item}} state=installed
@@ -36,7 +37,6 @@
     - libpq-dev
     - nodejs
     - imagemagick
-  tags: package
 #   RVM
 
 - name:  downloading the GPG signature
@@ -46,3 +46,5 @@
 - name: Installing rvm ruby and rails take 16m5.124s up to your  internet conection
   shell: \curl -sSL https://get.rvm.io | bash -s stable --rails
   sudo: true
+
+

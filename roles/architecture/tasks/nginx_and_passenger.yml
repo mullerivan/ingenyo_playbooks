@@ -1,33 +1,71 @@
 ---
-- name: Install nginx
-  apt: pkg=nginx state=latest
+- name: install  gem passenger
+  gem: name=passenger state=present executable=/usr/local/rvm/wrappers/default/gem
 
-- name: Remove the default app
-  command: rm -rf /etc/nginx/sites-enabled/default
-
-- name:  downloading the GPG signature
-  shell: apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 561F9B9CAC40B2F7
+- name: install passenger-install-nginx-module --auto
+  shell: /usr/local/rvm/wrappers/default/passenger-install-nginx-module --auto
   sudo: true
 
-- name: Install apt-transport-https  and ca-certificates
-  apt: pkg={{ item }} state=latest update_cache=yes install_recommends=yes
-  with_items:
-  - apt-transport-https 
-  - ca-certificates
-  sudo: true
+- name: Copio archivo de servicio para nginx 
+  copy: src=nginx.sh dest=/etc/init.d/nginx owner=root group=root mode=755
 
-- copy: src=passenger.list dest=/etc/apt/sources.list.d/passenger.list owner=root group=root mode=644
+- name: Creo link para que se ejecute en el inicio de la pc
+  file: src=/etc/init.d/nginx  dest=/etc/rcS.d/S80nginx  state=link
 
-- name: Install passenger and nginx-extras
-  apt: pkg={{ item }} state=latest update_cache=yes install_recommends=yes
-  with_items:
-  - nginx-extras 
-  - passenger
-  sudo: true
+- name: Creo link para que se paresca a una instalacion normal!
+  file: src=/opt/nginx/conf  dest=/etc/nginx  state=link
 
-- name: Restart nginx
-  action: service name=nginx state=restarted
+- name: create directory sites-available 
+  file: path=/etc/nginx/sites-available  state=directory  
 
-- name: config environment rails gem version
-  lineinfile: dest=/etc/nginx/nginx.conf  regexp="passenger_root" line="passenger_root /usr/lib/ruby/vendor_ruby/phusion_passenger/locations.ini;"
+- name: create directory sites-enabled
+  file: path=/etc/nginx/sites-enabled state=directory    
+
+- lineinfile: dest=/etc/nginx/nginx.conf  insertafter="http " line="include /etc/nginx/sites-enabled/*;"
+
+- name: create directory sites-available 
+  file: path=/u/apps  state=directory
+
+
+
+
+
+# - name: update-rc.d nginx defaults
+#   shell: update-rc.d nginx defaults
+#   sudo: true
+
+
+# - name: Install nginx
+#   apt: pkg=nginx state=latest
+
+# # - name: Remove the default app
+# #   command: rm -rf /etc/nginx/sites-enabled/default
+
+# - name:  downloading the GPG signature
+#   shell: apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 561F9B9CAC40B2F7
+#   sudo: true
+
+# - name: Install apt-transport-https  and ca-certificates
+#   apt: pkg={{ item }} state=latest update_cache=yes install_recommends=yes
+#   with_items:
+#   - apt-transport-https 
+#   - ca-certificates
+#   sudo: true
+
+# # - copy: src=passenger.list dest=/etc/apt/sources.list.d/passenger.list owner=root group=root mode=644
+
+# - name: Install passenger and nginx-extras
+#   apt: pkg={{ item }} state=latest update_cache=yes install_recommends=yes
+#   with_items:
+#   - nginx-extras 
+#   - libcurl4-openssl-dev
+#   - libpcre3-dev
+#   # - passenger
+#   sudo: true
+
+# - name: Restart nginx
+#   action: service name=nginx state=restarted
+
+# # - name: config environment rails gem version
+# #   lineinfile: dest=/etc/nginx/nginx.conf  regexp="passenger_root" line="passenger_root /usr/lib/ruby/vendor_ruby/phusion_passenger/locations.ini;"
 

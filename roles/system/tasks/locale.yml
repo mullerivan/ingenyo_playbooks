@@ -1,0 +1,4 @@
+---
+- name: generate locales
+  locale_gen: name={{ locale }} state=present
+  sudo: true

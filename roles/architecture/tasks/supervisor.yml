@@ -1,6 +1,11 @@
-- name: Install supervisor packages
-  apt: pkg={{ item }} state=latest update_cache=yes install_recommends=yes
-  with_items:
-  - supervisor
+- name: Install supervisor by pip
+  shell: pip install -U supervisor
 
-- copy: src=supervisord.conf dest=/etc/supervisor/supervisord.conf owner=root group=root mode=644
+- name: create directory
+  file: path=/usr/local/etc/ state=directory
+
+- copy: src=supervisord.conf dest=/usr/local/etc/supervisord.conf owner=root group=root mode=644 force=yes
+- copy: src=supervisord.sh dest=/etc/init.d/supervisord owner=root group=root mode=755
+
+- name: Creo link para que se ejecute en el inicio de la pc
+  file: src=/etc/init.d/supervisord  dest=/etc/init.d/S81supervisord  state=link
