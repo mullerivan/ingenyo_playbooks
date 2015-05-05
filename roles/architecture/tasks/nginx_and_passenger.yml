@@ -1,7 +1,12 @@
 ---
-- name: install  gem passenger
-  gem: name=passenger state=present executable=/usr/local/rvm/wrappers/default/gem
+# - name: install  gem passenger
+#   gem: name=passenger state=present executable=/usr/local/rvm/wrappers/default/gem
 
+- name: gem install passenger
+  shell: /usr/local/rvm/wrappers/default/gem install passenger
+  sudo: true
+
+ # sudo 
 - name: install passenger-install-nginx-module --auto
   shell: /usr/local/rvm/wrappers/default/passenger-install-nginx-module --auto
   sudo: true

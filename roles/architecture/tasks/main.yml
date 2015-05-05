@@ -4,6 +4,6 @@
 - include: python.yml
 - include: rvm.yml
 - include: nginx_and_passenger.yml
-- include: jenkins.yml
+# - include: jenkins.yml
 
 
