@@ -31,6 +31,9 @@
 - name: create directory sites-available 
   file: path=/u/apps  state=directory
 
+- name: start nginx
+  shell: sudo service nginx start
+  sudo: true
 
 
 
