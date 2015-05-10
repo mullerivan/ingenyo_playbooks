@@ -1,8 +1,8 @@
 ---
 # Setup the apps
 - include: rails_app.yml
-# - include: mullerivan.yml
-# - include: jenkins.yml
+- include: mullerivan.yml
+- include: jenkins.yml
 
 
 

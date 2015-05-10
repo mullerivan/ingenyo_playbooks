@@ -16,7 +16,7 @@
 - lineinfile: dest=/etc/nginx/sites-available/{{app_name}}  regexp="www.xxx.com" line="server_name {{app_name_url}};"
 
 - name: rake db:migrate
-  shell: RAILS_ENV=production /usr/local/rvm/wrappers/default/rake db:migrate 
+  shell: /usr/local/rvm/wrappers/default/rake db:migrate RAILS_ENV=production
          chdir={{rails_app_path}}
   sudo: false
 

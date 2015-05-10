@@ -6,7 +6,7 @@
     # - system
     # - architecture
     # - firewall
-#    - fail2ban
+    # - fail2ban
     # - createuser
     - deploy
   vars_files:

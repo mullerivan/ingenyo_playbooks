@@ -1,16 +1,16 @@
-## RUBY
-## from https://github.com/jgrowl/ansible-playbook-ruby-from-src
-# rubyTmpDir: /usr/local/src
-# rubyUrl: http://cache.ruby-lang.org/pub/ruby/2.2/ruby-2.2.2.tar.gz 		
-# rubyCompressedFile: ruby-2.2.2.tar.gz
-# rubyName: ruby-2.2.2
-# tmpRubyPath: "{{rubyTmpDir}}/{{rubyName}}"
-#DEPLOY
+#Arquitecture
+essential: true
+python: true
+rvm: true
+nginx_and_passenger: true
+jenkins: true
+
 app_path: /home/vagrant/mullerivan
+#Generic rails deploy
 rails_app_path: /home/vagrant/camara
 git_repositorie: https://github.com/mullerivan/camara-webRT
 app_name: camara-webRT
 app_name_url: www.camara.com.dev
 #IPTABLES
 load_defaul_config: true
-persist_iptables_on_reboot: false
+persist_iptables_on_reboot: true

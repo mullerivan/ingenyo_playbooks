@@ -3,10 +3,11 @@
   user: ivan
   sudo: true
   roles:
-   - architecture
-    # - firewall
+   # - architecture
+    - firewall
 #    - fail2ban
 #    - createuser
+  # - deploy
   vars:
     user: seba
     ignoreip: 1.2.3.4

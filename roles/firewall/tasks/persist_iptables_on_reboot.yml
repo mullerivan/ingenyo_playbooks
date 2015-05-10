@@ -2,7 +2,7 @@
 - name: save iptables config
   shell: /sbin/iptables-save > /etc/iptables.rules
 
-- lineinfile: dest=/etc/rc.local  insertafter="exit 0" line="iptables-restore < /etc/iptables.rules"
+- lineinfile: dest=/etc/rc.local  insertbefore="exit 0" line="iptables-restore < /etc/iptables.rules"
 
 # other option is tu create a file with the same  comand on /etc/network/if-up.d/someFile
 # but i like the rc.local
