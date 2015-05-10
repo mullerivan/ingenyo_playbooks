@@ -31,12 +31,12 @@
 - name: create directory sites-available 
   file: path=/u/apps  state=directory
 
-- name: start nginx
-  shell: sudo service nginx start
-  sudo: true
+# - name: start nginx
+#   shell: sudo service nginx start
+#   sudo: true
 
 
-
+# STOP IS NOT WORKING
 
 # - name: update-rc.d nginx defaults
 #   shell: update-rc.d nginx defaults
