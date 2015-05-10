@@ -12,7 +12,7 @@
   sudo: true
 
 - name: Copio archivo de servicio para nginx 
-  copy: src=nginx.sh dest=/etc/init.d/nginx owner=root group=root mode=755
+  copy: src=nginx dest=/etc/init.d/nginx owner=root group=root mode=755
 
 - name: Creo link para que se ejecute en el inicio de la pc
   file: src=/etc/init.d/nginx  dest=/etc/rcS.d/S80nginx  state=link
@@ -20,6 +20,9 @@
 - name: Creo link para que se paresca a una instalacion normal!
   file: src=/opt/nginx/conf  dest=/etc/nginx  state=link
 
+- name: Creo link para que los comandos del deamon funcionen con services
+  file: src=/var/run/nginx.pid  dest=/opt/nginx/logs/nginx.pid  state=link  
+    
 - name: create directory sites-available 
   file: path=/etc/nginx/sites-available  state=directory  
 

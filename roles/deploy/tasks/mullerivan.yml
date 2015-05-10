@@ -14,8 +14,8 @@
 
 - lineinfile: dest=/etc/nginx/sites-available/mullerivan.com  regexp="root my_app/public;" line="root {{app_path}}/public;"
 
-- name: start nginx
-  shell: sudo service nginx start
-  sudo: true
+# - name: start nginx
+#   shell: sudo service nginx start
+#   sudo: true
 
 #restar server

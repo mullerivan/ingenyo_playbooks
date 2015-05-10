@@ -1,0 +1,17 @@
+---
+- name: save iptables config
+  shell: /sbin/iptables-save > /etc/iptables.rules
+
+- lineinfile: dest=/etc/rc.local  insertafter="exit 0" line="iptables-restore < /etc/iptables.rules"
+
+# other option is tu create a file with the same  comand on /etc/network/if-up.d/someFile
+# but i like the rc.local
+
+#yhouse 
+# - name: copy loadiptables
+#   copy: src=loadiptables dest=/etc/network/if-up.d/loadiptables owner=root group=root mode=751
+
+# - name: copy saveiptables
+#   copy: src=saveiptables dest=/etc/network/if-down.d/saveiptables owner=root group=root mode=751
+
+

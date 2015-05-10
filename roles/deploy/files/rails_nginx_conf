@@ -1,0 +1,6 @@
+server {
+    listen 80;
+    server_name www.xxx.com;
+    root my_app/public;
+    passenger_enabled on;
+}
