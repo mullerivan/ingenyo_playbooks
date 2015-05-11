@@ -1,8 +1,11 @@
 ---
 # Setup the apps
 - include: rails_app.yml
+  when: rails_app_deploy
 - include: mullerivan.yml
+  when: mullerivan_app_deploy
 - include: jenkins.yml
+  when: jenkins_app_deploy
 
 
 

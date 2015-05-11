@@ -3,19 +3,18 @@
   user: vagrant
   sudo: true
   roles:
-    # - system
-    # - architecture
-    # - firewall
-    # - fail2ban
-    # - createuser
+    - system
+    - architecture
+    - firewall
+    # DEPRECATED# - fail2ban
+    # DEPRECATED# - createuser
     - deploy
   vars_files:
     - vars/default.yml    
-  vars:
+  vars: #TO-DO ENV
     env: 'develop'  # sould be develop testing or production
-    user: ivan
-    ignoreip: 1.2.3.4
-    mail_fail2band: mullerivan@gmail.com
+
+
  
 
 # A small Rails server playbook for Ansible

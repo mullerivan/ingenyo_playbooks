@@ -1,16 +1,25 @@
 #Arquitecture
-essential: true
-python: true
-rvm: true
-nginx_and_passenger: true
-jenkins: true
-
+essential: false
+python: false
+rvm: false
+nginx_and_passenger: false
+jenkins: false
+#Jenkins
+jenkins_app_deploy: false
+#IPTABLES
+load_defaul_config: false
+persist_iptables_on_reboot: false
+#mullerivan.com
+mullerivan_app_deploy: false
 app_path: /home/vagrant/mullerivan
 #Generic rails deploy
+rails_app_deploy: false
 rails_app_path: /home/vagrant/camara
 git_repositorie: https://github.com/mullerivan/camara-webRT
 app_name: camara-webRT
 app_name_url: www.camara.com.dev
-#IPTABLES
-load_defaul_config: true
-persist_iptables_on_reboot: true
+# Create user
+user: ivan
+#Fail2Band
+ignoreip: 1.2.3.4
+mail_fail2band: mullerivan@gmail.com
