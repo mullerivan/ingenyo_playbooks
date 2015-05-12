@@ -9,4 +9,5 @@
          chdir=/var/lib/jenkins
 
 - name: start jenkins
-  service: name=jenkins state=started
+  shell: sudo service jenkins start
+  sudo: true

@@ -1,0 +1,21 @@
+- name: ingenyo
+  hosts: ingenyo_dev
+  user: root
+  sudo: true
+  roles:
+   - system
+   - architecture
+   # - firewall
+#    - fail2ban
+   # - createuser
+   - deploy
+  vars_files:
+    - vars/default.yml  
+
+
+
+#NO ENTENDES?
+#DOCUMENTACION!
+#http://docs.ansible.com/
+#todos los modulos que hay para usar!
+#http://docs.ansible.com/list_of_all_modules.html
