@@ -1,6 +1,5 @@
-- name: stop jenkins
-  service: name=jenkins state=stopped
-
+- name: start jenkins
+  shell: service jenkins stop
 
 - copy: src=jenkins.tar.gz dest=/tmp/jenkins.tar.gz
 
@@ -9,5 +8,4 @@
          chdir=/var/lib/jenkins
 
 - name: start jenkins
-  shell: sudo service jenkins start
-  sudo: true
+  shell: service jenkins start

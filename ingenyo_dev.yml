@@ -5,9 +5,7 @@
   roles:
    - system
    - architecture
-   # - firewall
-#    - fail2ban
-   # - createuser
+   - firewall
    - deploy
   vars_files:
     - vars/default.yml  

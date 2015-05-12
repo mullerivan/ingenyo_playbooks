@@ -1,18 +1,20 @@
+# System
+system: false
 #Arquitecture
-essential: true
-python: false
-rvm: false
-nginx_and_passenger: false
-jenkins: true
+essential: false
+python: true
+rvm: true
+nginx_and_passenger: true
+jenkins: false
 #Jenkins
 jenkins_app_deploy: false
 #IPTABLES
 load_defaul_config: false
 persist_iptables_on_reboot: false
 #mullerivan.com
-mullerivan_app_deploy: false
-user_deploy: ivan
-app_path: /u/apps/mullerivan
+mullerivan_app_deploy: true
+mullerivan_user_deploy: ivan
+mullerivan_app_path: /u/apps/mullerivan
 #Generic rails deploy
 rails_app_deploy: false
 rails_app_path: /home/vagrant/camara

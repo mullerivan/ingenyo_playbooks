@@ -5,19 +5,19 @@
     - java-common  
     - openjdk-6-jre-headless
     - openjdk-6-jre-lib
-# sudo add-apt-repository ppa:webupd8team/java
 
 - apt_repository: repo='ppa:webupd8team/java'
 
 - name: apt-get upgrade 
   action: apt update_cache=yes upgrade=yes
 
+- name: auto accept oracle jdk license
+  shell: echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections
+
 - name: Install oracle-java8-installer
   apt: pkg={{ item }} state=latest update_cache=yes install_recommends=yes
   with_items:
   - oracle-java8-installer
-
-
 # sudo apt-get install oracle-java7-installer    
 
 - name:  downloading the GPG signature

@@ -3,7 +3,7 @@
   user: root
   sudo: true
   roles:
-   - system
+   # - system
    # - architecture
    # - firewall
 #    - fail2ban

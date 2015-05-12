@@ -1,4 +1,6 @@
 ---
 - include: locale.yml
+  when: system
 - include: timezone.yml
+  when: system
 
