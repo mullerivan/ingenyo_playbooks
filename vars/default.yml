@@ -5,13 +5,14 @@ rvm: false
 nginx_and_passenger: false
 jenkins: false
 #Jenkins
-jenkins_app_deploy: false
+jenkins_app_deploy: true
 #IPTABLES
 load_defaul_config: false
 persist_iptables_on_reboot: false
 #mullerivan.com
 mullerivan_app_deploy: false
-app_path: /home/vagrant/mullerivan
+user_deploy: ivan
+app_path: /u/apps/mullerivan
 #Generic rails deploy
 rails_app_deploy: false
 rails_app_path: /home/vagrant/camara

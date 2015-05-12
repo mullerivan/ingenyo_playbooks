@@ -14,8 +14,21 @@
 
 - lineinfile: dest=/etc/nginx/sites-available/mullerivan.com  regexp="root my_app/public;" line="root {{app_path}}/public;"
 
-# - name: start nginx
-#   shell: sudo service nginx start
-#   sudo: true
+- name: rake db:migrate
+  shell: /usr/local/rvm/wrappers/default/rake db:migrate RAILS_ENV=production
+         chdir={{app_path}}
+  sudo: false
+
+- name: assets:precompile
+  shell: /usr/local/rvm/wrappers/default/rake assets:precompile
+         chdir={{app_path}}
+  sudo: false
+
+- name: change owner
+  command: chown "{{user_deploy}}":"{{user_deploy}}" -R  {{app_path}}
+
+- name: Reload nginx
+  shell: sudo service nginx reload
+  sudo: true
 
 #restar server

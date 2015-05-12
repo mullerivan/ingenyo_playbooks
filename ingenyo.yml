@@ -1,18 +1,15 @@
 - name: ingenyo
-  hosts: ivan
-  user: ivan
+  hosts: ingenyo
+  user: root
   sudo: true
   roles:
    # - architecture
-    - firewall
+   # - firewall
 #    - fail2ban
-#    - createuser
-  # - deploy
-  vars:
-    user: seba
-    ignoreip: 1.2.3.4
-    mail_fail2band: mullerivan@gmail.com
-
+   # - createuser
+   - deploy
+  vars_files:
+    - vars/default.yml  
 
 
 
