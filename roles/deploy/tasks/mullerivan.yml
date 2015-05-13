@@ -15,12 +15,12 @@
 
 - name: rake db:migrate
   shell: /usr/local/rvm/wrappers/default/rake db:migrate RAILS_ENV=production
-         chdir={{app_path}}
+         chdir={{mullerivan_app_path}}
   sudo: false
 
 - name: assets:precompile
   shell: /usr/local/rvm/wrappers/default/rake assets:precompile
-         chdir={{app_path}}
+         chdir={{mullerivan_app_path}}
   sudo: false
 
 - name: Copy config file nginx => /etc/nginx/sites-available/mullerivan.com 

@@ -2,9 +2,9 @@
 system: false
 #Arquitecture
 essential: false
-python: true
-rvm: true
-nginx_and_passenger: true
+python: false
+rvm: false
+nginx_and_passenger: false
 jenkins: false
 #Jenkins
 jenkins_app_deploy: false
