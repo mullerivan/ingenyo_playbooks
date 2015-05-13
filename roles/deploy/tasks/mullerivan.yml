@@ -4,7 +4,7 @@
 - name: change owner
   command: chown {{mullerivan_user_deploy}}:{{mullerivan_user_deploy}} -R   /home/{{mullerivan_user_deploy}}/
 
-- name: Clonemullerivan_user_deploy
+- name: Clone {{mullerivan_user_deploy}}
   git: repo=https://github.com/mullerivan/mullerivan.git dest={{mullerivan_app_path}} accept_hostkey=yes
   sudo: false
 

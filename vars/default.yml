@@ -17,10 +17,11 @@ mullerivan_user_deploy: ivan
 mullerivan_app_path: /u/apps/mullerivan
 #Generic rails deploy
 rails_app_deploy: false
-rails_app_path: /home/vagrant/camara
-git_repositorie: https://github.com/mullerivan/camara-webRT
-app_name: camara-webRT
-app_name_url: www.camara.com.dev
+rails_user_deploy: rails
+rails_app_path: /u/apps/rails_app
+rails_git_repositorie: https://github.com/mullerivan/camara-webRT
+rails_app_name: camara-webRT
+rails_app_name_url: www.camara.com.dev
 # Create user
 user: ivan
 #Fail2Band
