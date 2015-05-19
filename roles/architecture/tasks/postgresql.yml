@@ -18,7 +18,7 @@
 - name: create postgresql user
   postgresql_user: name={{postgresql_user}}
                    password={{postgresql_pass}}
-                   role_attr_flags=CREATEDB,NOSUPERUSER,LOGIN
+                   role_attr_flags=CREATEDB,NOSUPERUSER,LOGIN,INHERIT,NOREPLICATION
   sudo_user: postgres
 
 - name: create postgresql database for {{postgresql_user}}
