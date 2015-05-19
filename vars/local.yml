@@ -1,0 +1,38 @@
+# Local-just-for-my-pc
+local: true
+# System
+system: false
+#Arquitecture
+essential: false
+python: false
+rvm: true
+nginx_and_passenger: false
+jenkins: false
+#database
+postgresql: false
+postgresql_user: vagrant
+postgresql_db_name: vagrant
+postgresql_pass: vagrant
+#console
+ohmyzsh: false
+user: ivan  ##same user for # Create user
+#Jenkins
+jenkins_app_deploy: false
+#IPTABLES
+load_defaul_config: false
+persist_iptables_on_reboot: false
+#mullerivan.com
+mullerivan_app_deploy: false
+mullerivan_user_deploy: ivan
+mullerivan_app_path: /u/apps/mullerivan
+#Generic rails deploy
+rails_app_deploy: false
+rails_user_deploy: redmine
+rails_app_path: /u/apps/redmine
+rails_git_repositorie: https://github.com/redmine/redmine.git
+rails_app_name: redmine
+rails_app_name_url: www.redmine.com.dev
+#Fail2Band
+ignoreip: 1.2.3.4
+mail_fail2band: mullerivan@gmail.com
+

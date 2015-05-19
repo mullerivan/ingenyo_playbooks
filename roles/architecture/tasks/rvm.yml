@@ -30,7 +30,7 @@
     - libxslt1-dev
     - curl
     - libcurl4-openssl-dev
-    - libmagickwand-dev
+    # - libmagickwand-dev
 
 - name: Install app dependencies 
   action: apt pkg={{item}} state=installed
