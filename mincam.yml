@@ -1,0 +1,10 @@
+- name: mincam
+  hosts: mincam
+  user: mincamde
+  sudo: true
+  roles:
+   - architecture
+   # - deploy
+  vars_files:
+    - vars/mincam.yml  
+#ansible-playbook  ingenyo.yml -i hosts/ingenyo  --ask-sudo-pass -vvvv

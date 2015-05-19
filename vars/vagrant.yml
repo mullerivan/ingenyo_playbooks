@@ -1,19 +1,23 @@
 # Local-just-for-my-pc
 local: false
 # System
-system: false
+system: true
 #Arquitecture
-essential: false
+essential: true
 python: false
 rvm: false
 nginx_and_passenger: false
 jenkins: false
 #database
-postgresql: false
+postgresql: true
+postgresql_user: vagrant
+postgresql_db_name: vagrant
+postgresql_pass: vagrant
 #console
 ohmyzsh: true
+user: vagrant  ##same user for # Create user
 #Jenkins
-jenkins_app_deploy: true
+jenkins_app_deploy: false
 #IPTABLES
 load_defaul_config: false
 persist_iptables_on_reboot: false
@@ -28,8 +32,7 @@ rails_app_path: /u/apps/rails_app
 rails_git_repositorie: https://github.com/mullerivan/camara-webRT
 rails_app_name: camara-webRT
 rails_app_name_url: www.camara.com.dev
-# Create user
-user: ivan
 #Fail2Band
 ignoreip: 1.2.3.4
 mail_fail2band: mullerivan@gmail.com
+

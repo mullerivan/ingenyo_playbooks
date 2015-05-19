@@ -1,4 +1,4 @@
-- name: ingenyo
+- name: vagrant
   hosts: all
   user: vagrant
   sudo: true
@@ -10,7 +10,7 @@
     # DEPRECATED# - createuser
     - deploy
   vars_files:
-    - vars/default.yml    
+    - vars/vagrant.yml    
   vars: #TO-DO ENV
     env: 'develop'  # sould be develop testing or production
 
@@ -26,3 +26,4 @@
 #http://docs.ansible.com/
 #todos los modulos que hay para usar!
 #http://docs.ansible.com/list_of_all_modules.html
+# the grob-efi package faild to install  into /target/ without the GRUB boot loader, the installed system will not boot

@@ -2,6 +2,8 @@
 # Setup the apps
 - include: essential.yml
   when: essential
+- include: local-essential.yml
+  when: local
 - include: python.yml
   when: python
 - include: rvm.yml
@@ -10,5 +12,7 @@
   when: nginx_and_passenger
 - include: jenkins.yml
   when: jenkins 
+- include: postgresql.yml
+  when: postgresql   
 
 

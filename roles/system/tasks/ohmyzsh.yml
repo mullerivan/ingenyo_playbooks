@@ -1,0 +1,20 @@
+---
+- name: Install git and zsh 
+  apt: name={{ item }}
+       state=latest
+       update_cache=yes
+  sudo: yes
+  with_items:
+   - git
+   - zsh
+   - git-core
+
+- name: Clone oh-my-zsh repo
+  git: repo=https://github.com/robbyrussell/oh-my-zsh.git dest=/home/{{user}}/.oh-my-zsh
+
+- name: deploy .zshrc
+  copy: src=zshrc dest=/home/{{user}}/.zshrc
+
+- name: Set zsh as default shell
+  user: name={{user}} shell=/bin/zsh
+  sudo: yes

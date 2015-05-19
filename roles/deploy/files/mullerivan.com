@@ -1,6 +1,6 @@
 server {
     listen 80;
-    server_name www.mullerivan.com;
+    server_name www.mullerivan.com mullerivan.com;
     root my_app/public;
 
     # You must explicitly set 'passenger_enabled on', otherwise
