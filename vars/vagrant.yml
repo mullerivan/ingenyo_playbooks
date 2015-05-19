@@ -1,20 +1,20 @@
 # Local-just-for-my-pc
 local: false
 # System
-system: true
+system: false
 #Arquitecture
-essential: true
+essential: false
 python: false
 rvm: false
 nginx_and_passenger: false
 jenkins: false
 #database
-postgresql: true
+postgresql: false
 postgresql_user: vagrant
 postgresql_db_name: vagrant
 postgresql_pass: vagrant
 #console
-ohmyzsh: true
+ohmyzsh: false
 user: vagrant  ##same user for # Create user
 #Jenkins
 jenkins_app_deploy: false
@@ -26,12 +26,12 @@ mullerivan_app_deploy: false
 mullerivan_user_deploy: ivan
 mullerivan_app_path: /u/apps/mullerivan
 #Generic rails deploy
-rails_app_deploy: false
-rails_user_deploy: rails
-rails_app_path: /u/apps/rails_app
-rails_git_repositorie: https://github.com/mullerivan/camara-webRT
-rails_app_name: camara-webRT
-rails_app_name_url: www.camara.com.dev
+rails_app_deploy: true
+rails_user_deploy: redmine
+rails_app_path: /u/apps/redmine
+rails_git_repositorie: https://github.com/redmine/redmine.git
+rails_app_name: redmine
+rails_app_name_url: www.redmine.com.dev
 #Fail2Band
 ignoreip: 1.2.3.4
 mail_fail2band: mullerivan@gmail.com

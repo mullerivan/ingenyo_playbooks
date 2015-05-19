@@ -1,0 +1,3 @@
+- name: Clone redmine
+  git: repo=https://github.com/redmine/redmine.git dest={{redmine_app_path}} accept_hostkey=yes version=redmine-3.0
+  sudo: false

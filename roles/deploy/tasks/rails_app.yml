@@ -1,13 +1,29 @@
 # AGREGAR CREACION DE USUARIO
+- name: Create  user {{rails_user_deploy}}
+  user: name={{rails_user_deploy}}  comment="create user {{rails_user_deploy}}" state=present system=yes createhome=yes shell=/bin/bash
+
+- name: Create .ssh directory
+  file: path=/home/{{rails_user_deploy}}/.ssh state=directory
+#me autorizo a mi a entrar por cualquier usuario
+- name: copy authorized_keys
+  copy: src=authorized_keys dest=/home/{{rails_user_deploy}}/.ssh/authorized_keys
+
+#porque  crea todo como root
+- name: change owner
+  command: chown {{rails_user_deploy}}:{{rails_user_deploy}} -R   /home/{{rails_user_deploy}}/
+
+# FIN CREACION DE USUARIO
 
 - name: Clone repositorio
-  git: repo={{rails_git_repositorie}} dest={{rails_app_path}} accept_hostkey=yes
-  sudo: false
+  git: repo={{rails_git_repositorie}} dest={{rails_app_path}} accept_hostkey=yes  
+
+- name: change owner to {{rails_user_deploy}}
+  command: chown "{{rails_user_deploy}}":"{{rails_user_deploy}}" -R  {{rails_app_path}}
 
 - name: bundle install (install the rest of the gems)
   shell: /usr/local/rvm/wrappers/default/bundle
          chdir={{rails_app_path}}
-  sudo: false
+  sudo_user: "{{rails_user_deploy}}"
 
 - copy: src=rails_nginx_conf dest=/etc/nginx/sites-available/{{rails_app_name}}
 
@@ -19,13 +35,12 @@
 - name: rake db:migrate
   shell: /usr/local/rvm/wrappers/default/rake db:migrate RAILS_ENV=production
          chdir={{rails_app_path}}
-  sudo: false
+  sudo_user: "{{rails_user_deploy}}"
 
 - name: assets:precompile
-  shell: /usr/local/rvm/wrappers/default/rake assets:precompile
+  shell: /usr/local/rvm/wrappers/default/rake assets:precompile RAILS_ENV=production
          chdir={{rails_app_path}}
-  sudo: false
+  sudo_user: "{{rails_user_deploy}}"
 
 - name: reload nginx
-  shell: service nginx reload
-  sudo: true
+  shell: service nginx reload  
