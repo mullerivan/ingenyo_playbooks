@@ -9,12 +9,18 @@
     - transmission-gtk
     - gthumb
     - gthumb-data
+    - libreoffice-draw
+    - libreoffice-math
+    - libreoffice-impress
+    - tomboy
 
 - name: Install local-essential packages just for my PC
   apt: pkg={{ item }} state=latest update_cache=yes install_recommends=yes
   with_items:
   - nfs-kernel-server
   - skype
+  - qbittorrent
+  - acpi
 
 - name: config mi dotfiles
   shell: sh /home/ivan/projectos/dotfiles/setup.sh

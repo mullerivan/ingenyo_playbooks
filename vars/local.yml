@@ -5,7 +5,7 @@ system: false
 #Arquitecture
 essential: false
 python: false
-rvm: true
+rvm: false
 nginx_and_passenger: false
 jenkins: false
 #database
