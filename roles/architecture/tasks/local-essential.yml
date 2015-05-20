@@ -21,6 +21,8 @@
   - skype
   - qbittorrent
   - acpi
+  - gddrescue
+  - gparted
 
 - name: config mi dotfiles
   shell: sh /home/ivan/projectos/dotfiles/setup.sh

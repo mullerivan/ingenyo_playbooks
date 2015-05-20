@@ -20,6 +20,18 @@
 - name: Accept https conection port 443
   shell: iptables -A INPUT -p tcp --dport 443  -j ACCEPT
 
+- name: Accept https conection port 2049 tcp and udp nfs-server
+  shell: iptables -A INPUT -p tcp --dport 2049  -j ACCEPT  
+
+- name: Accept https conection port 2049 tcp and udp nfs-server
+  shell: iptables -A INPUT -p udp --dport 2049  -j ACCEPT  
+
+- name: Accept https conection port 111 tcp and udp nfs-server
+  shell: iptables -A INPUT -p tcp --dport 111  -j ACCEPT
+
+- name: Accept https conection port 111 tcp and udp nfs-server
+  shell: iptables -A INPUT -p udp --dport 111  -j ACCEPT
+
 - name: localhost could conect anywhere
   shell: iptables -A INPUT -i lo -j ACCEPT
 
