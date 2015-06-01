@@ -11,5 +11,8 @@
 
 #add de revers proxi on nginx
 
+# - name: add super powers to jenkins
+# - lineinfile: dest=/etc/sudoers  insertafter="includedir /etc/sudoers.d" line='jenkins ALL=(ALL) NOPASSWD: ALL'
+
 - name: start jenkins
   shell: service jenkins start

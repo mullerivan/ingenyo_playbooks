@@ -23,7 +23,7 @@
   - acpi
   - gddrescue
   - gparted
-
+  - cheese
 - name: config mi dotfiles
   shell: sh /home/ivan/projectos/dotfiles/setup.sh
   sudo: true

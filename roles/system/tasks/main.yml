@@ -3,5 +3,4 @@
   when: system
 - include: timezone.yml
   when: system
-# - include: ohmyzsh.yml  
-#   when: ohmyzsh
+

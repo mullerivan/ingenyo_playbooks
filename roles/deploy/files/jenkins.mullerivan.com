@@ -1,8 +1,7 @@
 server {
   listen          80;       # Listen on port 80 for IPv4 requests
 
-  server_name      www.jenkins.mullerivan.com jenkins.mullerivan.com;
-
+  server_name    jenkins.mullerivan.com;
   #this is the jenkins web root directory (mentioned in the /etc/default/jenkins file)
   root         /var/cache/jenkins/war/;
 
@@ -19,7 +18,7 @@ server {
   location /userContent {
         #have nginx handle all the static requests to the userContent folder files
         #note : This is the $JENKINS_HOME dir
-	      root /var/lib/jenkins/;
+	root /var/lib/jenkins/;
         if (!-f $request_filename){
            #this file does not exist, might be a directory or a /**view** url
            rewrite (.*) /$1 last;

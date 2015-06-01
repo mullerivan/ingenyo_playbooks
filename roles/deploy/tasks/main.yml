@@ -6,7 +6,8 @@
   when: mullerivan_app_deploy
 - include: jenkins.yml
   when: jenkins_app_deploy
-
+- include: ohmyzsh.yml
+  when: ohmyzsh
 
 
 
