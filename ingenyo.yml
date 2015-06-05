@@ -6,9 +6,9 @@
    # - system
    # - architecture
    # - firewall
-#    - fail2ban
+   - fail2ban
    # - createuser
-   - deploy
+   # - deploy
   vars_files:
     - vars/default.yml  
 #ansible-playbook  ingenyo.yml -i hosts/ingenyo  --ask-sudo-pass -vvvv

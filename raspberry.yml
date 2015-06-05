@@ -3,12 +3,12 @@
   user: pi
   sudo: true
   roles:
-    - system
-    - architecture
-    # - firewall
+     - system
+    # - architecture
+#    - firewall
     # DEPRECATED# - fail2ban
     # DEPRECATED# - createuser
-    - deploy
+#    - deploy
   vars_files:
     - vars/local.yml    
   vars: #TO-DO ENV

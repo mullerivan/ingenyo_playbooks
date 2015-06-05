@@ -24,9 +24,17 @@
   - gddrescue
   - gparted
   - cheese
-- name: config mi dotfiles
-  shell: sh /home/ivan/projectos/dotfiles/setup.sh
-  sudo: true
+  - nmap
+  - aircrack-ng
+  - dsniff
+  - npm
+
+- name: config npm
+  file: src=/usr/bin/nodejs dest=/usr/bin/node  state=link
+
+# - name: config mi dotfiles
+#   shell: sh /home/ivan/projectos/dotfiles/setup.sh
+#   sudo: true
 
 
 

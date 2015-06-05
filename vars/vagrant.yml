@@ -1,5 +1,5 @@
 # Local-just-for-my-pc
-local: false
+local-essential: false
 # System
 system: false
 #Arquitecture

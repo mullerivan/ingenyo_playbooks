@@ -1,5 +1,5 @@
 # Local-just-for-my-pc
-local: false
+local-essential: true
 # System
 system: false
 #Arquitecture
@@ -14,7 +14,7 @@ postgresql_user: vagrant
 postgresql_db_name: vagrant
 postgresql_pass: vagrant
 #console
-ohmyzsh: true
+ohmyzsh: false
 user: ivan  ##same user for # Create user
 #Jenkins
 jenkins_app_deploy: false

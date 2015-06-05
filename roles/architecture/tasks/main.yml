@@ -3,7 +3,7 @@
 - include: essential.yml
   when: essential
 - include: local-essential.yml
-  when: local
+  when: local-essential
 - include: python.yml
   when: python
 - include: rvm.yml
