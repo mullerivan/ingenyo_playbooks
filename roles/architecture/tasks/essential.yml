@@ -21,6 +21,7 @@
   - nload
   - python-pycurl
   - zsh
+  - apache2-utils
 
 - name: Install build essential package
   apt: pkg={{ item }} state=latest update_cache=yes install_recommends=yes

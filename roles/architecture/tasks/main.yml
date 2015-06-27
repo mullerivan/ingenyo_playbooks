@@ -2,10 +2,10 @@
 # Setup the apps
 - include: essential.yml
   when: essential
-- include: local-essential.yml
-  when: local-essential
 - include: python.yml
   when: python
+- include: local-essential.yml
+  when: local-essential  
 - include: rvm.yml
   when: rvm
 - include: nginx_and_passenger.yml

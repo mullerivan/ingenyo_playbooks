@@ -28,13 +28,27 @@
   - aircrack-ng
   - dsniff
   - npm
+  - curl
+  - chromium-browser
+  - virtualbox-4.3
+  - sublime-text
+  - macchanger
 
 - name: config npm
   file: src=/usr/bin/nodejs dest=/usr/bin/node  state=link
 
-# - name: config mi dotfiles
-#   shell: sh /home/ivan/projectos/dotfiles/setup.sh
-#   sudo: true
+- name: Clone dotfiles
+  git: repo=https://github.com/mullerivan/dotfiles.git dest=/home/ivan/.dotfiles accept_hostkey=yes
+  sudo: false
+
+- name: config mi dotfiles
+  shell: sh /home/ivan/.dotfiles/setup.sh
+  sudo: true
+
+# - name: curl
+#   shell: curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
+#   sudo: false
+
 
 
 

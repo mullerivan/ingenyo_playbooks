@@ -1,5 +1,5 @@
 # Local-just-for-my-pc
-local-essential: false
+local-essential: true
 # System
 system: false
 #Arquitecture
@@ -15,8 +15,8 @@ ohmyzsh: false
 #Jenkins
 jenkins_app_deploy: false
 #IPTABLES
-load_defaul_config: true
-persist_iptables_on_reboot: true
+load_defaul_config: false
+persist_iptables_on_reboot: false
 #mullerivan.com
 mullerivan_app_deploy: false
 mullerivan_user_deploy: ivan

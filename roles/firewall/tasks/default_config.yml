@@ -25,3 +25,9 @@
 
 - name: Politic INPUT DROP
   shell: iptables -P INPUT DROP
+
+# 445
+# 139
+# 53
+# 631
+# 111

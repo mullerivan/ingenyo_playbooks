@@ -1,0 +1,9 @@
+- name: rebecca
+  hosts: rebecca
+  user: ivan
+  sudo: true
+  roles:
+   - architecture
+  vars_files:
+    - vars/default.yml  
+#ansible-playbook  ingenyo.yml -i hosts/ingenyo  --ask-sudo-pass -vvvv
