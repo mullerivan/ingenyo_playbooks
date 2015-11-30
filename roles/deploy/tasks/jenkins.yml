@@ -16,3 +16,6 @@
 
 - name: start jenkins
   shell: service jenkins start
+
+- name: Reload nginx
+  shell: sudo service nginx reload  

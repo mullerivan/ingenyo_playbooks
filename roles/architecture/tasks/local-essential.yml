@@ -18,7 +18,6 @@
   apt: pkg={{ item }} state=latest update_cache=yes install_recommends=yes
   with_items:
   - nfs-kernel-server
-  - skype
   - qbittorrent
   - acpi
   - gddrescue
@@ -30,16 +29,14 @@
   - npm
   - curl
   - chromium-browser
-  - virtualbox-4.3
-  - sublime-text
+  #- virtualbox-4.3
+  #- sublime-text
   - macchanger
-
+  - postgresql-client
+  - mysql-client
 - name: config npm
   file: src=/usr/bin/nodejs dest=/usr/bin/node  state=link
 
-- name: Clone dotfiles
-  git: repo=https://github.com/mullerivan/dotfiles.git dest=/home/ivan/.dotfiles accept_hostkey=yes
-  sudo: false
 
 - name: config mi dotfiles
   shell: sh /home/ivan/.dotfiles/setup.sh
@@ -49,6 +46,34 @@
 #   shell: curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
 #   sudo: false
 
+- name: Install python-apt
+  command: apt-get -y install python-apt
+
+- name: Install aptitude (some ubuntus dont have it...)
+  command: apt-get -y install aptitude
+
+- name: apt-get upgrade 
+  action: apt update_cache=yes upgrade=yes
+
+- name: Install essential packages
+  apt: pkg={{ item }} state=latest update_cache=yes install_recommends=yes
+  with_items:
+  - git
+  - mercurial
+  - screen
+  - bzip2
+  - htop
+  - vim
+  - locate
+  - nload
+  - python-pycurl
+  - zsh
+  - apache2-utils
+
+- name: Install build essential package
+  apt: pkg={{ item }} state=latest update_cache=yes install_recommends=yes
+  with_items:
+  - build-essential
 
 
 

@@ -1,3 +1,7 @@
+
+- name: create directory /etc/fail2ban 
+  file: path=/etc/fail2ban  state=directory  
+  
 - name: copy jail.local
   copy: src=jail.local
         dest=/etc/fail2ban/jail.local

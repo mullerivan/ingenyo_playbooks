@@ -2,7 +2,6 @@
 - name: remomve old java
   action: apt pkg={{item}} state=absent
   with_items:
-    - java-common  
     - openjdk-6-jre-headless
     - openjdk-6-jre-lib
 

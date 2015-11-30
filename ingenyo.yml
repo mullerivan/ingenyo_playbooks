@@ -3,12 +3,15 @@
   user: root
   sudo: true
   roles:
-   # - system
-   # - architecture
-   # - firewall
-   - fail2ban
-   # - createuser
-   # - deploy
+    - system
+    - architecture
+    - firewall
+   # - fail2ban
+    - createuser
+    - deploy
   vars_files:
     - vars/default.yml  
 #ansible-playbook  ingenyo.yml -i hosts/ingenyo  --ask-sudo-pass -vvvv
+#IP: 168.235.151.204
+#SSH Username: root/user
+#SSH Pass: yhULU6epAD

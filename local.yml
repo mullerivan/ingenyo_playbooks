@@ -3,12 +3,12 @@
   user: ivan
   sudo: true
   roles:
-    - system
+    #- system
     - architecture
     - firewall
     # DEPRECATED# - fail2ban
     # DEPRECATED# - createuser
-    - deploy
+    #- deploy
   vars_files:
     - vars/local.yml    
   vars: #TO-DO ENV

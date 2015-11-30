@@ -3,19 +3,19 @@ local-essential: true
 # System
 system: false
 #Arquitecture
-essential: false
+essential: true
 python: false
 rvm: false
 nginx_and_passenger: false
-jenkins: false
 #database
 postgresql: false
 #console
 ohmyzsh: false
-#Jenkins
+#Jenkinsee
+jenkins: false
 jenkins_app_deploy: false
 #IPTABLES
-load_defaul_config: false
+load_defaul_config: true
 persist_iptables_on_reboot: false
 #mullerivan.com
 mullerivan_app_deploy: false
@@ -24,7 +24,7 @@ mullerivan_app_path: /u/apps/mullerivan
 #Generic rails deploy
 rails_app_deploy: false
 rails_user_deploy: rails
-rails_app_path: /u/apps/rails_app
+rails_app_path: /u/apps/mincam
 rails_git_repositorie: https://github.com/mullerivan/camara-webRT
 rails_app_name: camara-webRT
 rails_app_name_url: www.camara.com.dev
@@ -32,4 +32,5 @@ rails_app_name_url: www.camara.com.dev
 user: ivan
 #Fail2Band
 ignoreip: 1.2.3.4
+
 mail_fail2band: mullerivan@gmail.com

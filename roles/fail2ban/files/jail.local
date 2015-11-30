@@ -137,7 +137,7 @@ enabled  = false
 port     = ssh
 filter   = sshd-ddos
 logpath  = /var/log/auth.log
-maxretry = 6
+maxretry = 5
 
 #
 # HTTP servers
