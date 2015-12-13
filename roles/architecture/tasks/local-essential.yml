@@ -13,6 +13,7 @@
     - libreoffice-math
     - libreoffice-impress
     - tomboy
+    - pidgin
 
 - name: Install local-essential packages just for my PC
   apt: pkg={{ item }} state=latest update_cache=yes install_recommends=yes
@@ -30,7 +31,6 @@
   - curl
   - chromium-browser
   #- virtualbox-4.3
-  #- sublime-text
   - macchanger
   - postgresql-client
   - mysql-client
@@ -69,11 +69,10 @@
   - python-pycurl
   - zsh
   - apache2-utils
+  - sublime-text
 
 - name: Install build essential package
   apt: pkg={{ item }} state=latest update_cache=yes install_recommends=yes
   with_items:
   - build-essential
-
-
-
+  - virtualbox-5.0

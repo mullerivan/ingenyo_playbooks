@@ -14,14 +14,20 @@
 - name: Accept http conection port 80
   shell: iptables -A INPUT -p tcp --dport 80  -j ACCEPT
 
-#- name: Accept http conection to jenkins
-#  shell: iptables -A INPUT -p tcp --dport 8080  -j ACCEPT  
+- name: Accept http conection to nfs
+  shell: iptables -A INPUT -p tcp  --dport 111  -j ACCEPT  
+
+- name: Accept http conection to nfs
+  shell: iptables -A INPUT -p tcp --dport 2049  -j ACCEPT    
 
 - name: Accept https conection port 443
   shell: iptables -A INPUT -p tcp --dport 443  -j ACCEPT
 
 - name: localhost could conect anywhere
   shell: iptables -A INPUT -i lo -s 127.0.0.1 -j ACCEPT
+
+- name: vagrant/escrow could conect anywhere
+  shell: iptables -A INPUT -s 10.11.12.10 -j ACCEPT
 
 - name: Politic INPUT DROP
   shell: iptables -P INPUT DROP

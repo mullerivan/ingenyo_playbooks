@@ -4,7 +4,7 @@
   sudo: true
   roles:
     #- system
-    - architecture
+    #- architecture
     - firewall
     # DEPRECATED# - fail2ban
     # DEPRECATED# - createuser
