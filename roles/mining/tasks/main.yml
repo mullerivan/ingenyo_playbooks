@@ -1,0 +1,38 @@
+---
+- name: Install minig - 
+  apt: pkg={{ item }}
+       state=latest
+       install_recommends=yes
+       update_cache=yes
+  with_items:
+  - git 
+  - curl 
+  - unzip 
+  - gedit 
+  - automake 
+  - autoconf 
+  - dh-autoreconf 
+  - build-essential 
+  - pkg-config 
+  - openssh-server 
+  - screen 
+  - libtool 
+  - libcurl4-openssl-dev 
+  - libtool 
+  - libncurses5-dev 
+  - libudev-dev
+
+- name: Clone darkcoin-cpuminer
+  git: repo=https://github.com/ig0tik3d/darkcoin-cpuminer-1.2c.git dest=/root accept_hostkey=yes
+
+ - name: autogen 
+   command: ./autogen.sh chdir=/root/darkcoin-cpuminer-1.2c
+
+- name: config | make
+  command: ./configure CFLAGS="-O3" chdir=/root/darkcoin-cpuminer-1.2c   
+
+- name: make
+  command: make chdir=/root/darkcoin-cpuminer-1.2c     
+  
+- name: make
+  command: make install chdir=/root/darkcoin-cpuminer-1.2c       

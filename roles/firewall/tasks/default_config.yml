@@ -21,7 +21,7 @@
   shell: iptables -A INPUT -p tcp --dport 443  -j ACCEPT
 
 - name: localhost could conect anywhere
-  shell: iptables -A INPUT -i lo -j ACCEPT
+  shell: iptables -A INPUT -i lo -s 127.0.0.1 -j ACCEPT
 
 - name: Politic INPUT DROP
   shell: iptables -P INPUT DROP
