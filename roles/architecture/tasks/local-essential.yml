@@ -38,6 +38,11 @@
   file: src=/usr/bin/nodejs dest=/usr/bin/node  state=link
 
 
+- name: Clone .dotfiles
+  git: repo=https://github.com/mullerivan/dotfiles.git dest=/home/ivan/.dotfiles accept_hostkey=yes
+  sudo: false
+
+
 - name: config mi dotfiles
   shell: sh /home/ivan/.dotfiles/setup.sh
   sudo: true
@@ -75,4 +80,3 @@
   apt: pkg={{ item }} state=latest update_cache=yes install_recommends=yes
   with_items:
   - build-essential
-  - virtualbox-5.0

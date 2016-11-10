@@ -14,7 +14,7 @@ postgresql_user: vagrant
 postgresql_db_name: vagrant
 postgresql_pass: vagrant
 #console
-ohmyzsh: false
+ohmyzsh: true
 user: ivan  ##same user for # Create user
 #Jenkins
 jenkins_app_deploy: false
