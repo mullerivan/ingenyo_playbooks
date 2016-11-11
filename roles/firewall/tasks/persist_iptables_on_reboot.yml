@@ -2,12 +2,14 @@
 - name: save iptables config
   shell: /sbin/iptables-save > /etc/iptables.rules
 
-- lineinfile: dest=/etc/rc.local  insertbefore="exit 0" line="iptables-restore < /etc/iptables.rules"
+- copy: src=iptables dest=/etc/network/if-up.d/iptables
 
-# other option is tu create a file with the same  comand on /etc/network/if-up.d/someFile
-# but i like the rc.local
+- name: make executable
+  shell: chmod +x /etc/network/if-up.d/iptables
+  
+#- lineinfile: dest=/etc/rc.local  insertbefore="exit 0" line="iptables-restore < /etc/iptables.rules"
 
-#yhouse 
+
 # - name: copy loadiptables
 #   copy: src=loadiptables dest=/etc/network/if-up.d/loadiptables owner=root group=root mode=751
 
